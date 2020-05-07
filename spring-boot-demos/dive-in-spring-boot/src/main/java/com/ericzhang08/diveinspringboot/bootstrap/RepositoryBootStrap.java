@@ -13,6 +13,8 @@ public class RepositoryBootStrap {
                 .run(args);
         System.out.println("myfirstRepository:" + ctx.getBean("myFirstLevelRepository"));
 
+
         ctx.close();
+
     }
 }
