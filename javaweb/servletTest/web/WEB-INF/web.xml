@@ -42,4 +42,60 @@
         <servlet-name>HelloHttpServlet</servlet-name>
         <url-pattern>/helloHttpServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HttpResponseServlet</servlet-name>
+        <servlet-class>com.ericzhang08.servlet.HttpResponseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpResponseServlet</servlet-name>
+        <url-pattern>/response</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RedirectServlet</servlet-name>
+        <servlet-class>com.ericzhang08.servlet.RedirectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RedirectServlet</servlet-name>
+        <url-pattern>/redirect</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>cookieServlet</servlet-name>
+        <servlet-class>com.ericzhang08.servlet.CookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cookieServlet</servlet-name>
+        <url-pattern>/cookie</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SetSessionServlet</servlet-name>
+        <servlet-class>com.ericzhang08.servlet.SetSessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SetSessionServlet</servlet-name>
+        <url-pattern>/setSession</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetSessionServlet</servlet-name>
+        <servlet-class>com.ericzhang08.servlet.GetSessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetSessionServlet</servlet-name>
+        <url-pattern>/getSession</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <!--给 filter 起一个别名-->
+        <filter-name>TestFilter</filter-name>
+        <!--配置 filter 的全类名-->
+        <filter-class>com.ericzhang08.filter.TestFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>TestFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

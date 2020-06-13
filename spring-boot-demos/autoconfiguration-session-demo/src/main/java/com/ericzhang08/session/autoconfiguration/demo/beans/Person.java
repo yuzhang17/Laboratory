@@ -10,10 +10,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-//@PropertySource(value = {"classpath:person.properties"})
+@PropertySource(value = {"classpath:person.yaml"})
 @Component
-//@ConfigurationProperties(prefix = "person")
-//@Validated
+@ConfigurationProperties(prefix = "person")
+
 public class Person {
 
     /**
@@ -24,11 +24,11 @@ public class Person {
 
    //lastName必须是邮箱格式
    // @Email
-    @Value("${person.last-name}")
+//    @Value("${person.last-name}")
     private String lastName;
-    @Value("#{11*2}")
+//    @Value("#{11*2}")
     private Integer age;
-    @Value("true")
+//    @Value("true")
     private Boolean boss;
 
     private Date birth;
