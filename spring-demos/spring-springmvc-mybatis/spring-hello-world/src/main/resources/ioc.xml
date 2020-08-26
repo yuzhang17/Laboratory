@@ -36,7 +36,12 @@
 
     <bean id="factory-bean_person" class="com.ericzhang08.helloworld.PersonFactoryBean"/>
 
+    <bean id="test_destroy_person" class="com.ericzhang08.helloworld.PersonStaticFactory"
+          factory-method="createPerson" init-method="init" destroy-method="destroy">
+        <constructor-arg name="name" value="staticFactoryPerson"/>
+    </bean>
 
+    <bean id="processor" class="com.ericzhang08.helloworld.MyBeanPostProcessor"/>
 
 
 </beans>

@@ -12,6 +12,14 @@ public class Person {
     private Integer age;
     private String gender;
     private String email;
+
+    public void init() {
+        System.out.println("init....");
+    }
+
+    public void destroy() {
+        System.out.println("destroying...");
+    }
 }
 
 

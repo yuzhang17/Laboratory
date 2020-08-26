@@ -63,6 +63,12 @@ public class PersonTest {
         System.out.println(person);
     }
 
+    @Test
+    void testInitAndDestroy() {
+        Person person = (Person) iocContainer.getBean("test_destroy_person");
+        System.out.println("test...");
+    }
+
 
 
 
