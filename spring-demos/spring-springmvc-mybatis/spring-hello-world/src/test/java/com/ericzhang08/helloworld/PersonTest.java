@@ -35,7 +35,37 @@ public class PersonTest {
 
     @Test
     void testPNamespace() {
-        Person person03 = (Person)iocContainer.getBean("person02");
+        Person person03 = (Person)iocContainer.getBean("person03");
         System.out.println(person03);
     }
+
+    @Test
+    void testNoArgConstructor() {
+        Person person04 = (Person)iocContainer.getBean("person04");
+        System.out.println(person04);
+    }
+
+    @Test
+    void testStaticPersonFactory() {
+        Person person04 = (Person)iocContainer.getBean("static_person");
+        System.out.println(person04);
+    }
+
+    @Test
+    void testInstancePersonFactory() {
+        Person person = (Person)iocContainer.getBean("instance_person");
+        System.out.println(person);
+    }
+
+    @Test
+    void testPersonFactoryBeanFactory() {
+        Person person = (Person)iocContainer.getBean("factory-bean_person");
+        System.out.println(person);
+    }
+
+
+
+
+
+
 }
