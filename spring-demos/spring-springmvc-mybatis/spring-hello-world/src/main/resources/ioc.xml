@@ -29,7 +29,8 @@
 
     <bean id="instance_person_factory" class="com.ericzhang08.helloworld.PersonInstanceFactory"/>
 
-    <bean id="instance_person" class="com.ericzhang08.helloworld.PersonInstanceFactory" factory-bean="instance_person_factory" factory-method="createPerson">
+    <bean id="instance_person" class="com.ericzhang08.helloworld.PersonInstanceFactory"
+          factory-bean="instance_person_factory" factory-method="createPerson">
         <constructor-arg name="name" value="instanceFactoryPerson"/>
     </bean>
 
@@ -42,6 +43,14 @@
     </bean>
 
     <bean id="processor" class="com.ericzhang08.helloworld.MyBeanPostProcessor"/>
+
+
+    <bean  class="com.ericzhang08.helloworld.Car">
+        <property name="name" value="car"/>
+    </bean>
+
+    <bean id="person" class="com.ericzhang08.helloworld.Person" autowire="constructor">
+    </bean>
 
 
 </beans>

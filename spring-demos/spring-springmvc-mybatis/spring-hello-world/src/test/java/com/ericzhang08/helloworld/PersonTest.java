@@ -69,6 +69,12 @@ public class PersonTest {
         System.out.println("test...");
     }
 
+    @Test
+    void testAutowired() {
+        Person person = (Person) iocContainer.getBean("person");
+        System.out.println("test..." + person.getCar().getName());
+    }
+
 
 
 
