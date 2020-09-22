@@ -6,11 +6,9 @@
 
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "1.3.71"
-
+    kotlin("jvm") version "1.4.0"
     // Apply the application plugin to add support for building a CLI application.
     application
-    idea
 }
 
 repositories {
@@ -24,16 +22,16 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
 
     // Use the Kotlin JDK 8 standard library.
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk13")
+    kotlin("stdlib-jdk8")
 
     // Use the Kotlin test library.
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    kotlin("test")
 
     // Use the Kotlin JUnit integration.
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+    kotlin("test-junit")
 }
 
 application {
     // Define the main class for the application.
-    mainClassName = "com.yuzhang.kotlindemo.AppKt"
+    mainClassName = "com.gradle.demo.AppKt"
 }
