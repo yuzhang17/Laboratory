@@ -1,0 +1,3 @@
+domain: tutorial.kubebuilder.io
+repo: github.com/yuzhang17/Laboratory/go-demos/kubebuilder-demo
+version: "2"
