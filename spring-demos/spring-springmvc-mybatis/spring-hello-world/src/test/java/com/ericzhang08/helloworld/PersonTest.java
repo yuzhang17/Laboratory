@@ -3,9 +3,14 @@ package com.ericzhang08.helloworld;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+@ContextConfiguration(locations = "classpath:ioc.xml")
+@ExtendWith(SpringExtension.class)
 public class PersonTest {
     ApplicationContext iocContainer = null;
 
