@@ -1,9 +1,8 @@
-package com.ericzhang08.helloworld;
+package com.ericzhang08.helloworld.ioctest;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.FieldNameConstants;
 
 @Data
 @NoArgsConstructor

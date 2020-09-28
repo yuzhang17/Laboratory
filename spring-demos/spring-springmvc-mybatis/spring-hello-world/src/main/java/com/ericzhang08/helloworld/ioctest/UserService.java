@@ -1,4 +1,4 @@
-package com.ericzhang08.helloworld;
+package com.ericzhang08.helloworld.ioctest;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

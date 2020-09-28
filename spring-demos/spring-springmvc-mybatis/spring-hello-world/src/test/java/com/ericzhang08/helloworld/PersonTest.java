@@ -1,6 +1,6 @@
 package com.ericzhang08.helloworld;
 
-import org.junit.jupiter.api.BeforeAll;
+import com.ericzhang08.helloworld.ioctest.Person;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

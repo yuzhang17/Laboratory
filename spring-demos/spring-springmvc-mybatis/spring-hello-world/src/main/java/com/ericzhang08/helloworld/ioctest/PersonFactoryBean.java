@@ -1,4 +1,4 @@
-package com.ericzhang08.helloworld;
+package com.ericzhang08.helloworld.ioctest;
 
 import org.springframework.beans.factory.FactoryBean;
 

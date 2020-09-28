@@ -14,53 +14,53 @@
     </context:component-scan>
 
 
-    <bean id="person01" class="com.ericzhang08.helloworld.Person">
+    <bean id="person01" class="com.ericzhang08.helloworld.ioctest.Person">
         <property name="lastName" value="zs"/>
         <property name="age" value="5"/>
         <property name="gender" value="female"/>
         <property name="email" value="aaa"/>
     </bean>
 
-    <bean id="person02" class="com.ericzhang08.helloworld.Person">
+    <bean id="person02" class="com.ericzhang08.helloworld.ioctest.Person">
         <constructor-arg name="lastName" value="constructor-arg"/>
         <constructor-arg name="age" value="5"/>
         <constructor-arg name="gender" value="female"/>
         <constructor-arg name="email" value="aaa"/>
     </bean>
 
-    <bean id="person03" class="com.ericzhang08.helloworld.Person"
+    <bean id="person03" class="com.ericzhang08.helloworld.ioctest.Person"
           p:lastName="p" p:age="2000">
     </bean>
 
-    <bean id="person04" class="com.ericzhang08.helloworld.Person"/>
+    <bean id="person04" class="com.ericzhang08.helloworld.ioctest.Person"/>
 
-    <bean id="static_person" class="com.ericzhang08.helloworld.PersonStaticFactory" factory-method="createPerson">
+    <bean id="static_person" class="com.ericzhang08.helloworld.ioctest.PersonStaticFactory" factory-method="createPerson">
         <constructor-arg name="name" value="staticFactoryPerson"/>
     </bean>
 
-    <bean id="instance_person_factory" class="com.ericzhang08.helloworld.PersonInstanceFactory"/>
+    <bean id="instance_person_factory" class="com.ericzhang08.helloworld.ioctest.PersonInstanceFactory"/>
 
-    <bean id="instance_person" class="com.ericzhang08.helloworld.PersonInstanceFactory"
+    <bean id="instance_person" class="com.ericzhang08.helloworld.ioctest.PersonInstanceFactory"
           factory-bean="instance_person_factory" factory-method="createPerson">
         <constructor-arg name="name" value="instanceFactoryPerson"/>
     </bean>
 
 
-    <bean id="factory-bean_person" class="com.ericzhang08.helloworld.PersonFactoryBean"/>
+    <bean id="factory-bean_person" class="com.ericzhang08.helloworld.ioctest.PersonFactoryBean"/>
 
-    <bean id="test_destroy_person" class="com.ericzhang08.helloworld.PersonStaticFactory"
+    <bean id="test_destroy_person" class="com.ericzhang08.helloworld.ioctest.PersonStaticFactory"
           factory-method="createPerson" init-method="init" destroy-method="destroy">
         <constructor-arg name="name" value="staticFactoryPerson"/>
     </bean>
 
-    <bean id="processor" class="com.ericzhang08.helloworld.MyBeanPostProcessor"/>
+    <bean id="processor" class="com.ericzhang08.helloworld.ioctest.MyBeanPostProcessor"/>
 
 
-    <bean class="com.ericzhang08.helloworld.Car">
+    <bean class="com.ericzhang08.helloworld.ioctest.Car">
         <property name="name" value="car"/>
     </bean>
 
-    <bean id="person" class="com.ericzhang08.helloworld.Person" autowire="constructor">
+    <bean id="person" class="com.ericzhang08.helloworld.ioctest.Person" autowire="constructor">
     </bean>
 
 
