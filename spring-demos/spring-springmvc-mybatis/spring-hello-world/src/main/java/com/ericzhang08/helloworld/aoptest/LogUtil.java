@@ -1,6 +1,7 @@
 package com.ericzhang08.helloworld.aoptest;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +11,22 @@ import java.util.Arrays;
 
 @Component
 public class LogUtil {
+
+    @Around("pointcut()")
+    public static int logAround(ProceedingJoinPoint joinPoint) {
+        System.out.println("around start");
+        int result = 0;
+        try {
+            result =  (int)joinPoint.proceed(joinPoint.getArgs());
+            System.out.println("around after involk");
+
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+        System.out.println("around after return");
+        return result;
+    }
+
     @Pointcut("execution(public  int com.ericzhang08.helloworld.aoptest.Calculator.*(int, int))")
     public void pointcut(){}
 
@@ -34,4 +51,6 @@ public class LogUtil {
     public static void logEnd() {
         System.out.println("method end");
     }
+
+
 }
