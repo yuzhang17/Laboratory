@@ -18,6 +18,7 @@ package controllers
 
 import (
 	"context"
+	"time"
 
 	"github.com/go-logr/logr"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -32,19 +33,46 @@ type CronJobReconciler struct {
 	client.Client
 	Log    logr.Logger
 	Scheme *runtime.Scheme
+	Clock
+}
+
+type realClock struct {
+
+}
+
+func (_ realClock) Now() time.Time {
+	return time.Now();
+}
+
+type Clock interface {
+	Now() time.Time
 }
 
 // +kubebuilder:rbac:groups=batch.tutorial.kubebuilder.io,resources=cronjobs,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=batch.tutorial.kubebuilder.io,resources=cronjobs/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=batch,resources=jobs,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=batch,resources=jobs/status,verbs=get
 
+var(
+	scheduledTimeAnnotation = "batch.tutorial.kubebuilder.io/scheduled-at"
+)
 func (r *CronJobReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
-	_ = context.Background()
-	_ = r.Log.WithValues("cronjob", req.NamespacedName)
+	ctx := context.Background()
+	log := r.Log.WithValues("cronjob", req.NamespacedName)
 
 	// your logic here
-
+	//1. Load the CronJob by name
+	var cronJob batchv1.CronJob
+	if err := r.Get(ctx, req.NamespacedName, &cronJob); err != nil {
+		log.Error(err, "unable to fetch CronJob")
+		return ctrl.Result{}, client.IgnoreNotFound(err)
+	}
 	return ctrl.Result{}, nil
+
+	//List all active jobs, and update the status
+	var 
 }
+
 
 func (r *CronJobReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
