@@ -3,8 +3,9 @@ package com.ericzhang08.helloworld.aoptest;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
-@Component
 @Aspect
+
+@Component
 public class LogUtil {
     @Before("execution(public  int com.ericzhang08.helloworld.aoptest.Calculator.*(int, int))")
     public static void logStart() {
