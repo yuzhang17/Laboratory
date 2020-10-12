@@ -24,6 +24,8 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
+	kbatch "k8s.io/api/batch/v1"
+
 
 	batchv1 "github.com/yuzhang17/Laboratory/go-demos/kubebuilder-demo/api/v1"
 )
@@ -70,7 +72,8 @@ func (r *CronJobReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 	return ctrl.Result{}, nil
 
 	//List all active jobs, and update the status
-	var 
+	var childJobs kbatch.JobList
+	r.Status().Update(ctx, &cronJob)
 }
 
 
