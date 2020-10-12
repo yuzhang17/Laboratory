@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/local/bin/bash
 
 A=/root/Desktop/shell/mem.txt
 echo ${A}
