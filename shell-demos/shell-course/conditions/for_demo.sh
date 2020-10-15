@@ -2,7 +2,7 @@
 
 
 echo 列表循环
-for var in {1..10};
+for var in {1..10..2};
     do
         echo ${var}
     done
@@ -22,8 +22,10 @@ for var1
 
 
 echo "类c风格循环"
-
-
+for (( i=1;i<5;i++ ))
+    do
+    echo ${i}
+    done
 
 echo "遍历数组"
 declare -a array
