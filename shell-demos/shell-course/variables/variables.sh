@@ -1,11 +1,11 @@
 #!/usr/local/bin/bash
 
 A=/root/Desktop/shell/mem.txt
-echo ${A}
+echo ${A} #/root/Desktop/shell/mem.txt
 
-dirname ${A}
+dirname ${A} #/root/Desktop/shell
 
-basename ${A}
+basename ${A} #mem.txt
 
 
 url=www.taobao.com
@@ -16,6 +16,7 @@ echo ${url##*.}
 
 echo ${url%.*}
 echo ${url%%.*}
+echo url${url}
 
 #替换
 echo ${url/ao/AO}

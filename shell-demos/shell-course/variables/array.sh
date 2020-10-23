@@ -21,12 +21,15 @@ declare -A array2
 
 array2=(["name1"]="harry" ["name2"]="jack" ["name3"]="amy" )
 
+echo ${array2["name1"]}
 
-echo "all element in array: ${array2[*]}"
+
+echo all element in array: ${array2[*]}
 echo "Length of array: ${#array2[*]}"
 echo "Indexes of array: ${!array2[@]}"
 echo "element from index 1 to 2: ${array2[@]:0:1}"
-
-
+1+1
+declar
+[[  ]]
 
 

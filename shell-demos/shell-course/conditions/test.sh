@@ -6,10 +6,10 @@ test 1 = 1; echo $?
 
 [ 1 = 2 ]; echo $?
 
-[[ 1 = 2 ]]; echo $?
+[[ 1 -eq 2 ]]; echo $?
 
 
-(( 1 == 2 )); echo $?
+(( 1 > 2 )); echo $?
 
 echo "判断文件存在"
 test -e array1.sh; echo $?
@@ -42,6 +42,7 @@ test 1 -eq 1 -o 1 -ne 1; echo $?
 
 test 1 -eq 1 || test 1 -ne 1; echo $?
 
-
+a=1
+${a}
 
 
