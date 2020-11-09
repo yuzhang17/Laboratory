@@ -41,7 +41,7 @@
     <bean id="instance_person_factory" class="com.ericzhang08.helloworld.ioctest.PersonInstanceFactory"/>
 
     <bean id="instance_person" class="com.ericzhang08.helloworld.ioctest.PersonInstanceFactory"
-          factory-bean="instance_person_factory" factory-method="createPerson">
+          factory-bean="instance_person_factory" factory-method="createPerson" >
         <constructor-arg name="name" value="instanceFactoryPerson"/>
     </bean>
 

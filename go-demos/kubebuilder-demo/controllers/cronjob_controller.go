@@ -383,6 +383,6 @@ func (r *CronJobReconciler) SetupWithManager(mgr ctrl.Manager) error {
 		return err
 	}
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&batch.CronJob{}).
+		For(&batch.CronJob{}).Owns(&kbatch.Job{}).
 		Complete(r)
 }
