@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graceful-shutdown-no-sleep-with-prestop-hook
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: graceful-shutdown-no-sleep-with-prestop-hook
+  template:
+    metadata:
+      labels:
+        app: graceful-shutdown-no-sleep-with-prestop-hook
+    spec:
+      containers:
+        - name: nginx
+          image: graceful-shutdown-no-sleep:latest
+          imagePullPolicy: IfNotPresent
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/sh", "-c", "sleep 10"]
+          ports:
+            - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: graceful-shutdown-no-sleep-with-prestop-hook
+spec:
+  type: NodePort
+  selector:
+    app: graceful-shutdown-no-sleep-with-prestop-hook
+  ports:
+    # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
+    - port: 80
+      targetPort: 8080
+      # Optional field
+      # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
+      nodePort: 30010
