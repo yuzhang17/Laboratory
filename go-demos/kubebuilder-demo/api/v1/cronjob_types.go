@@ -39,7 +39,7 @@ type CronJobSpec struct {
 	// time for any reason.  Missed jobs executions will be counted as failed ones.
 	// +optional
 
-	StartingDeadlineSeconds *int64 `json："startingDeadlineSeconds,omitempty"`
+	StartingDeadlineSeconds *int64 `json:"startingDeadlineSeconds,omitempty"`
 
 	// Specifies how to treat concurrent executions of a Job.
 	// Valid values are:

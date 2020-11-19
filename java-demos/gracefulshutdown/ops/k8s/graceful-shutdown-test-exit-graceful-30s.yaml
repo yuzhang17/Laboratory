@@ -17,6 +17,12 @@ spec:
         - name: nginx
           image: graceful-shutdown-test-exit-graceful-30s:latest
           imagePullPolicy: IfNotPresent
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /hello
+            initialDelaySeconds: 1
+
           ports:
             - containerPort: 8080
 

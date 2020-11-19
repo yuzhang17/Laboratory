@@ -4,3 +4,5 @@ kubectl apply -f ops/k8s/graceful-shutdown-test-exit-graceful-10s.yaml
 kubectl apply -f ops/k8s/graceful-shutdown-test-exit-immediate.yaml
 kubectl apply -f ops/k8s/graceful-shutdown-test-exit-graceful-30s.yaml
 kubectl apply -f ops/k8s/graceful-shutdown-no-sleep.yaml
+kubectl apply -f ops/k8s/graceful-shutdown-no-sleep-with-prestop-hook.yaml
+kubectl apply -f ops/k8s/graceful-shutdown-test-exit-graceful-30s-with-prehook.yaml

@@ -2,42 +2,47 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: graceful-shutdown-test-exit-graceful-10s
+  name: graceful-shutdown-test-exit-graceful-30s-with-prehook
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: graceful-shutdown-test-exit-graceful-10s
+      app: graceful-shutdown-test-exit-graceful-30s-with-prehook
   template:
     metadata:
       labels:
-        app: graceful-shutdown-test-exit-graceful-10s
+        app: graceful-shutdown-test-exit-graceful-30s-with-prehook
     spec:
       containers:
         - name: nginx
-          image: graceful-shutdown-test-exit-graceful-10s:latest
+          image: graceful-shutdown-test-exit-graceful-30s-with-prehook:latest
           imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/sh", "-c", "sleep 15"]
           readinessProbe:
             httpGet:
               port: 8080
               path: /hello
             initialDelaySeconds: 1
-          ports:
-            - containerPort: 8080
+
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: graceful-shutdown-test-exit-graceful-10s
+  name: graceful-shutdown-test-exit-graceful-30s-with-prehook
 spec:
   type: NodePort
   selector:
-    app: graceful-shutdown-test-exit-graceful-10s
+    app: graceful-shutdown-test-exit-graceful-30s-with-prehook
   ports:
     # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
     - port: 80
       targetPort: 8080
       # Optional field
       # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
-      nodePort: 30007
+      nodePort: 30011

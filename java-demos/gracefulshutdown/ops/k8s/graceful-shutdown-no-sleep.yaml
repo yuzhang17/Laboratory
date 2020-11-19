@@ -16,6 +16,11 @@ spec:
         - name: nginx
           image: graceful-shutdown-no-sleep:latest
           imagePullPolicy: IfNotPresent
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /hello
+            initialDelaySeconds: 1
           ports:
             - containerPort: 8080
 
