@@ -10,8 +10,8 @@ import java.time.LocalTime;
 public class Controller {
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String greeting() throws InterruptedException {
-        System.out.println("start sleep at" + LocalTime.now());
-        System.out.println("finish sleep at" + LocalTime.now());
+        System.out.println("start at" + LocalTime.now());
+        System.out.println("finish at" + LocalTime.now());
         return "hello world";
     }
 }
